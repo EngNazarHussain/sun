@@ -1,0 +1,30 @@
+name: sun_direction
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+ 
+  camera: ^0.11.0+2
+  image: ^4.2.0
+  geolocator: ^13.0.1
+  permission_handler: ^11.3.1
+  
+ # solar_calculator: ^1.0.0
+  apsl_sun_calc: ^0.0.4 # Check for the latest version on pub.dev
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/compass.png
+    # Add other asset paths here as needed
