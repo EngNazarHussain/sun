@@ -12,7 +12,8 @@ class TakePictureScreen extends StatefulWidget {
 
 class _TakePictureScreenState extends State<TakePictureScreen> {
   CameraController? _controller;
-  Future<void>? _initializeControllerFuture; // Make it nullable for better control
+  Future<void>?
+      _initializeControllerFuture; // Make it nullable for better control
   List<CameraDescription>? cameras; // To store available cameras
 
   @override
@@ -61,7 +62,8 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a Picture')),
+      appBar: AppBar(
+          backgroundColor: Colors.amber, title: const Text('Take a Picture')),
       body: _initializeControllerFuture == null
           ? const Center(child: Text('Initializing camera...'))
           : FutureBuilder<void>(
@@ -85,17 +87,17 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
                   await _initializeControllerFuture;
                   final image = await _controller!.takePicture();
                   // Navigate to the SunDetectionScreen with the image path
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SunDetectionScreen(
-                        image.path,
-                        latitude: 0.0, // Provide your latitude
-                        longitude: 0.0, // Provide your longitude
-                        dateTime: DateTime.now(), // Provide current date/time
-                      ),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => SunDetectionScreen(
+                  //       image.path,
+                  //       latitude: 0.0, // Provide your latitude
+                  //       longitude: 0.0, // Provide your longitude
+                  //       dateTime: DateTime.now(), // Provide current date/time
+                  //     ),
+                  //   ),
+                  // );
                 } catch (e) {
                   print(e);
                 }

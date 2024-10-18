@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sun_direction/SunDetectionScreen.dart';
 import 'TakePictureScreen.dart'; // Ensure the path is correct
 
 void main() {
@@ -10,10 +11,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Sun Direction',
-            debugShowCheckedModeBanner: false, // Hides the debug banner
-
+      debugShowCheckedModeBanner: false, // Hides the debug banner
 
       home: HomeScreen(), // Using a separate HomeScreen widget
     );
@@ -26,20 +26,24 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(
+          backgroundColor: Colors.amber,
+          title: Center(child: const Text('Home'))),
       body: Center(
         child: InkWell(
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const TakePictureScreen()),
+              MaterialPageRoute(builder: (context) => SunDirectionApp()),
             );
           },
           child: Container(
-            decoration: const BoxDecoration(color: Colors.amber),
+            decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadiusDirectional.all(Radius.circular(15))),
             padding: const EdgeInsets.all(15),
             child: const Text(
-              'Take a Picture',
+              'Check Sun Direction',
               style: TextStyle(color: Colors.black),
             ),
           ),

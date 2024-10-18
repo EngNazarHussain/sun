@@ -4,7 +4,8 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.3
+  # sdk: ^3.5.3
+  sdk: '>=3.1.1 <4.0.0'
 
 dependencies:
   flutter:
@@ -13,10 +14,19 @@ dependencies:
   camera: ^0.11.0+2
   image: ^4.2.0
   geolocator: ^13.0.1
+ 
+  geocoding: 
   permission_handler: ^11.3.1
-  
- # solar_calculator: ^1.0.0
+  solar_calculator: 
   apsl_sun_calc: ^0.0.4 # Check for the latest version on pub.dev
+ # sun: 
+  # flutter_compass: ^0.8.0
+  flutter_compass_v2: ^1.0.3
+  flutter_map_compass: ^1.0.3
+  sunrise_sunset_calc: ^3.0.0
+  intl:
+  #sunrise_sunset: 
+  # sunrise_sunset:
 
 dev_dependencies:
   flutter_test:
