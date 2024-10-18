@@ -8,6 +8,8 @@ import 'package:sunrise_sunset_calc/sunrise_sunset_calc.dart';
 import 'dart:math';
 
 class SunDirectionApp extends StatefulWidget {
+  const SunDirectionApp({super.key});
+
   @override
   _SunDirectionAppState createState() => _SunDirectionAppState();
 }
@@ -83,7 +85,7 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
       if (placemarks.isNotEmpty) {
         setState(() {
           _locationName = placemarks.first.locality ?? ''; // Get the city name
-          print('Location ' + _locationName.toString());
+          print('Location $_locationName');
         });
       }
     } catch (e) {
@@ -110,7 +112,7 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
       final result = getSunriseSunset(
         latitude,
         longitude,
-        Duration(hours: 0),
+        const Duration(hours: 0),
         now,
       );
 
@@ -194,7 +196,7 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
   @override
   Widget build(BuildContext context) {
     if (_cameraController == null || !_cameraController!.value.isInitialized) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
 
     return MaterialApp(
@@ -202,10 +204,10 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
       home: Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.amber,
-            title: Center(child: const Text('Sun Direction Guide'))),
+            title: const Center(child: Text('Sun Direction Guide'))),
         body: Stack(
           children: [
-            Container(
+            SizedBox(
                 width: double.infinity,
                 height: double.infinity,
                 child: CameraPreview(_cameraController!)),
@@ -232,7 +234,7 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.wb_sunny, color: Colors.yellow, size: 70),
+            const Icon(Icons.wb_sunny, color: Colors.yellow, size: 70),
             Container(
               width: 10, // Wider arrow body
               height: 100, // Adjusted height
@@ -242,7 +244,7 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
               ),
             ),
             CustomPaint(
-              size: Size(40, 40),
+              size: const Size(40, 40),
               painter: ArrowHeadPainter(),
             ),
           ],
@@ -258,29 +260,29 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
       left: 20,
       right: 20,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.black38,
           borderRadius: BorderRadiusDirectional.all(Radius.circular(15)),
         ),
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Text(
               'Sun Azimuth: ${_sunAzimuth!.toStringAsFixed(2)}°',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
             Text(
               'Sun Altitude: ${(_sunAltitude! * (180 / pi)).toStringAsFixed(2)}°',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
             Text(
               'Direction: ${_getSunDirection()}',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
             if (_locationName != null) // Show the location name
               Text(
                 'Location: $_locationName',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: const TextStyle(color: Colors.white, fontSize: 16),
               ),
           ],
         ),
@@ -293,8 +295,8 @@ class _SunDirectionAppState extends State<SunDirectionApp> {
     return Center(
       child: Container(
         color: Colors.black54,
-        padding: EdgeInsets.all(16.0),
-        child: Text(
+        padding: const EdgeInsets.all(16.0),
+        child: const Text(
           'No Sun, It\'s Night or Sunset',
           style: TextStyle(color: Colors.white, fontSize: 24),
         ),

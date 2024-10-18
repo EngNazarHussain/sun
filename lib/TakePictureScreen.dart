@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart'; // Add permission_handler package
-import 'package:sun_direction/SunDetectionScreen.dart';
 
 class TakePictureScreen extends StatefulWidget {
   const TakePictureScreen({super.key});

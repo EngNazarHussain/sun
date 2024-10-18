@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.amber,
-          title: Center(child: const Text('Home'))),
+          title: const Center(child: Text('Home'))),
       body: Center(
         child: InkWell(
           onTap: () {
