@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sun_direction/SunDetectionScreen.dart';
-import 'TakePictureScreen.dart'; // Ensure the path is correct
+// Ensure the path is correct
 
 void main() {
   runApp(const MainApp());
